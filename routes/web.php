@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'PagesController@homepage')->name('index');
+Route::get('/contact', 'PagesController@contact')->name('contact');
 
 Auth::routes();
 
