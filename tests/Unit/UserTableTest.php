@@ -32,7 +32,11 @@ class UserTableTest extends TestCase
 
     }
 
-
+    public function testDeleteUser()
+    {
+        $user = User::inRandomOrder()->first();
+        $this->assertTrue($user->delete());
+    }
 
 }
 
