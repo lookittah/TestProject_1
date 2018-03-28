@@ -35,5 +35,11 @@ class CarTableTest extends TestCase
         $car = Car::inRandomOrder()->first();
         $this->assertTrue($car->delete());
     }
+    public function testCountCar()
+    {
+        $car = Car::all();
+        $carCount=$car->count();
+        $this->assertTrue($carCount==50);
+    }
 
 }
