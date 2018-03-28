@@ -38,6 +38,13 @@ class UserTableTest extends TestCase
         $this->assertTrue($user->delete());
     }
 
+    public function testCountUser()
+    {
+        $user = User::all();
+        $userCount=$user->count();
+        $this->assertTrue($userCount==50);
+    }
+
 }
 
 
