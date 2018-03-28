@@ -30,4 +30,10 @@ class CarTableTest extends TestCase
         $this->assertTrue($car->save());
     }
 
+    public function testDeleteCar()
+    {
+        $car = Car::inRandomOrder()->first();
+        $this->assertTrue($car->delete());
+    }
+
 }
