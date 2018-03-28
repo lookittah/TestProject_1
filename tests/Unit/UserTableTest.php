@@ -14,10 +14,7 @@ class UserTableTest extends TestCase
      *
      * @return void
      */
-    public function testInsertUser()
-
-    {
-
+   public function testInsertUser(){
 
        $user= new User;
        $user->name="Ayikoue Hunlede";
@@ -25,6 +22,20 @@ class UserTableTest extends TestCase
        $user->password=" ";
 
 
-        $this->assertTrue($user->save());
+       $this->assertTrue($user->save());
     }
+
+    public function testUpdatetUser(){
+        $user=User::find(1);
+        $user->name="Steve Smith";
+        $this->assertTrue($user->save());
+
+    }
+
+
+
 }
+
+
+
+
