@@ -16,10 +16,18 @@ class CarTableTest extends TestCase
      */
     public function testInsertCar()
     {
-        $car=new Car;
-        $car->make=" ford";
-        $car->model=" ";
-        $car->year=" ";
+        $car = new Car;
+        $car->make = " ford";
+        $car->model = " ";
+        $car->year = " ";
         $this->assertTrue($car->save());
     }
+
+    public function testUpdateCar()
+    {
+        $car = Car::find(1);
+        $car->year = "2000";
+        $this->assertTrue($car->save());
+    }
+
 }
