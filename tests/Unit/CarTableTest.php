@@ -7,6 +7,9 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Car;
 use Faker\Generator as Faker;
+use PHPUnit\Framework\Constraint\IsType;
+
+
 class CarTableTest extends TestCase
 {
     /**
@@ -35,11 +38,13 @@ class CarTableTest extends TestCase
         $car = Car::inRandomOrder()->first();
         $this->assertTrue($car->delete());
     }
-    public function testCountCar()
-    {
-        $car = Car::all();
-        $carCount=$car->count();
-        $this->assertTrue($carCount==50);
+
+    public function testCarYearType(){
+
+        $car = Car::find(1);
+        $carYear=$car->year;
+        $this->assertInternalType(IsType::TYPE_INT, $carYear);
     }
+
 
 }
