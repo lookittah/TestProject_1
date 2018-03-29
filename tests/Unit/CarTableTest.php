@@ -20,7 +20,7 @@ class CarTableTest extends TestCase
     public function testInsertCar()
     {
         $car = new Car;
-        $car->make = " ford";
+        $car->make = "ford";
         $car->model = " ";
         $car->year = " ";
         $this->assertTrue($car->save());
@@ -45,6 +45,15 @@ class CarTableTest extends TestCase
         $carYear=$car->year;
         $this->assertInternalType(IsType::TYPE_INT, $carYear);
     }
+
+    public function testMakeValue(){
+
+        $car = Car::find(1);
+        $table = array("ford","honda", "toyota");
+
+        $carmake=$car->Make;
+        $this->assertTrue(in_array($carmake, $table) );
+        }
 
 
 }
