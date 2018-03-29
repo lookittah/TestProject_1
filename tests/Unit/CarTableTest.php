@@ -55,5 +55,20 @@ class CarTableTest extends TestCase
         $this->assertTrue(in_array($carmake, $table) );
         }
 
+    public function testCarModelType(){
+
+        $car = Car::find(1);
+        $car->Make = "toyota";
+        $car->Model = "landcruiser";
+        $car->year = "2018";
+        $car->save();
+
+        $car = Car::find(1);
+        $carModel=$car->Model;
+
+        $this->assertInternalType(IsType::TYPE_STRING, $carModel);
+    }
+
+
 
 }
